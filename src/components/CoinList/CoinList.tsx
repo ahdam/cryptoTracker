@@ -8,6 +8,7 @@ import { convertMarketDataToFlatListData } from "@app/utils/marketData.utils.tsx
 import { styles } from "./styles.tsx";
 import { CoinListType } from "./types.tsx";
 
+// Render a list of coins
 const CoinList = ({
   marketData,
   goToCoinScreen,

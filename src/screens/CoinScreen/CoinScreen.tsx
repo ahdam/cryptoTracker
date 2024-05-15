@@ -9,6 +9,9 @@ import { SaveCoin } from "@app/components/";
 import { CoinScreenProps } from "./types.tsx";
 import { styles } from "./styles.tsx";
 
+// Render a screen with a single coin
+// Handles saving and removing coins from the saved list
+// Handles navigation options and functions
 const CoinScreen = ({
   route,
   navigation,
@@ -16,6 +19,7 @@ const CoinScreen = ({
   const { coinId, coinName } = route.params;
   const [savedCoins, setSavedCoins] = useAtom(savedCoinsAtom);
 
+  // Add / Remove coin from saved coins list
   const toggleFavorite = useCallback(() => {
     if (savedCoins.includes(coinId)) {
       setSavedCoins(savedCoins.filter((item) => item !== coinId)).then();
@@ -34,6 +38,7 @@ const CoinScreen = ({
   }, [coinId, savedCoins, toggleFavorite]);
 
   React.useEffect(() => {
+    // On mount, set the title of the screen and save coin button
     navigation.setOptions({
       title: coinName,
       headerRight: renderSaveIcon,

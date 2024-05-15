@@ -9,6 +9,7 @@ import { savedCoinsAtom } from "@app/atoms/savedCoinsAtom.tsx";
 import { styles } from "./styles.tsx";
 import { CoinListItemProps } from "./types.tsx";
 
+// Render a single coin item
 const CoinListItem = ({
   id,
   symbol,

@@ -9,6 +9,8 @@ import MainContainer from "./MainContainer.tsx";
 import { styles } from "./styles.tsx";
 import { SaveCoin } from "@app/components/";
 
+// Render a screen with a list of coins
+// Handles navigation options and functions
 const MainScreen = (): React.JSX.Element => {
   const navigation = useNavigation() as any;
   const savedCoins = useAtomValue(savedCoinsAtom);
@@ -34,9 +36,9 @@ const MainScreen = (): React.JSX.Element => {
   }, [goFavoritesScreen, savedCoins]);
 
   React.useEffect(() => {
+    // On mount, set the title of the screen and saved coins icon + count
     navigation.setOptions({
       title: "Market",
-      allowAsProps: true,
       headerRight: renderSavedIcon,
     });
   }, [renderSavedIcon, navigation, goFavoritesScreen, savedCoins]);

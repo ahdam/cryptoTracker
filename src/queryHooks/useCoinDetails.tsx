@@ -3,6 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { mockCoinData } from "./__stubs__/coinData.tsx";
 import { USE_MOCK_DATA } from "@app/configs/";
 
+
+// Hook for fetching coin details from API
 const useCoinDetails = ({ coinId }: { coinId: string }) =>
   useQuery({
     queryKey: ["coin-detail", coinId],

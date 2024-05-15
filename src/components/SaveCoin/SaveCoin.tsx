@@ -6,6 +6,7 @@ import { styles } from "./styles.tsx";
 import { SaveCoinProps } from "./types.tsx";
 import { Badge } from "react-native-paper";
 
+// Render a button to save a coin for CoinScreen and a badge with the number of saved coins if there are any
 const SaveCoin = ({
   isSaved,
   onPress,

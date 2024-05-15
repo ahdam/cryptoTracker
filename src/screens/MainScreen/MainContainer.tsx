@@ -9,6 +9,7 @@ import { CoinData, CoinDataList } from "@app/components/CoinList/types.tsx";
 import { styles } from "./styles.tsx";
 import { MainContainerProps } from "./types.tsx";
 
+// Container for setting up data for MainScreen
 const MainContainer = ({
   goToCoinScreen,
 }: MainContainerProps): React.JSX.Element => {

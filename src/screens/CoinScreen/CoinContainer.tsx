@@ -9,6 +9,7 @@ import { PriceChart } from "@app/components/";
 import { ChartData } from "@app/components/PriceChart/types.tsx";
 import Header from "./components/Header.tsx";
 
+// Container for setting up data for CoinScreen
 const CoinContainer = ({ coinId }: { coinId: string }): React.JSX.Element => {
   const [chartData, setChartData] = useState({ xAxisLabels: [], data: [] });
   const {

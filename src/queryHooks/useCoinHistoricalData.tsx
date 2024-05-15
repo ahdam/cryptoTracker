@@ -5,6 +5,7 @@ import { mockHistoricalData } from "./__stubs__/historicalData.tsx";
 
 import { HistoricalDataParams } from "./types.ts";
 
+// Hook for fetching historical data (for charts) for a coin from API
 const useCoinHistoricalData = (params: HistoricalDataParams) => {
   return useQuery({
     queryKey: ["coin-historical-data", params.id],

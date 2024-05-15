@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Dimensions } from "react-native";
 
+// checks if the device is in portrait or landscape mode
 const useOrientation = () => {
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;

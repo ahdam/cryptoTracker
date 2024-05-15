@@ -9,6 +9,7 @@ import {
 
 import { MarketListParams, MarketListServerReply } from "./types.ts";
 
+// Hook for fetching market data from API
 const useMarketList = () =>
   useInfiniteQuery({
     initialData: undefined,
