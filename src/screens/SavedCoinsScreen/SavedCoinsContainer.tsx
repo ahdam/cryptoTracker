@@ -18,6 +18,7 @@ const SavedCoinsContainer = ({
   const { data: marketList } = useMarketList();
   const savedCoins = useAtomValue(savedCoinsAtom);
 
+  //TODO: Instead of using marketList (which may contain old data) to get coin data, use a different request to get coin data based on ids in savedCoins
   useEffect(() => {
     if (marketList && marketList.pages) {
       const marketDataPages = [...marketList.pages] as [];

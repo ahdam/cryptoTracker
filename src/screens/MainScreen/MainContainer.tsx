@@ -26,6 +26,7 @@ const MainContainer = ({
   } = useMarketList();
 
   const onChangeText = (query: string) => {
+    //TODO: Instead filtering marketList, use a different request to get coins data based on query
     if (!marketList || !marketList.pages) {
       return;
     }
