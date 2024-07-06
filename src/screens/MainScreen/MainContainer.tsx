@@ -25,22 +25,21 @@ const MainContainer = ({
     fetchNextPage,
   } = useMarketList();
 
-  const onChangeText = (query: string) => {
+  useEffect(() => {
     //TODO: Instead filtering marketList, use a different request to get coins data based on query
     if (!marketList || !marketList.pages) {
       return;
     }
     const marketDataCopy = [...marketList.pages] as [];
     const filteredMarketData = marketDataCopy.map((page: CoinDataList) =>
-      page.filter(
-        (coinData: CoinData) =>
-          coinData.name.toLowerCase().includes(query.toLowerCase()) ||
-          coinData.symbol.toLowerCase().includes(query.toLowerCase())
-      )
+        page.filter(
+            (coinData: CoinData) =>
+                coinData.name.toLowerCase().includes(searchQueryDeferred.toLowerCase()) ||
+                coinData.symbol.toLowerCase().includes(searchQueryDeferred.toLowerCase())
+        )
     ) as [];
-    setSearchQuery(query);
     setMarketData(filteredMarketData);
-  };
+  }, [searchQueryDeferred]);
 
   useEffect(() => {
     if (
@@ -58,8 +57,8 @@ const MainContainer = ({
     <View style={styles.container}>
       <Searchbar
         placeholder="Search"
-        onChangeText={onChangeText}
-        value={searchQueryDeferred}
+        onChangeText={setSearchQuery}
+        value={searchQuery}
         style={styles.searchBar}
       />
       <CoinList

@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { mockCoinData } from "./__stubs__/coinData.tsx";
-import { USE_MOCK_DATA } from "@app/configs/";
+import {API_KEY, BASE_URL} from "@app/configs/";
 
 
 // Hook for fetching coin details from API
@@ -12,16 +11,12 @@ const useCoinDetails = ({ coinId }: { coinId: string }) =>
   });
 
 const getCoinDetails = async ({ coinId }: { coinId: string }) => {
-  if (USE_MOCK_DATA) {
-    return mockCoinData;
-  }
-
   const reply = await fetch(
-    `https://api.coingecko.com/api/v3/coins/${coinId}`,
+    `${BASE_URL}/v3/coins/${coinId}`,
     {
       method: "GET",
       headers: {
-        "x-cg-demo-api-key": "CG-NLfufgir3t8Hzg7RDzBwDWrG",
+        "x-cg-demo-api-key": API_KEY,
       },
     }
   );

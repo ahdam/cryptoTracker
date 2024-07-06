@@ -1,10 +1,9 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 
-import { mockMarketData } from "./__stubs__/marketData.tsx";
 import {
-  MARKET_DATA_LIST_ITEMS_NO,
-  MOCK_MARKET_DATA_LIST_ITEMS_NO,
-  USE_MOCK_DATA,
+    API_KEY,
+    BASE_URL,
+    MARKET_DATA_LIST_ITEMS_NO,
 } from "@app/configs/";
 
 import { MarketListParams, MarketListServerReply } from "./types.ts";
@@ -13,7 +12,6 @@ import { MarketListParams, MarketListServerReply } from "./types.ts";
 const useMarketList = () =>
   useInfiniteQuery({
     initialData: undefined,
-    // @ts-ignore
     initialPageParam: 1,
     queryKey: ["market-list"],
     queryFn: (pageParam) => getMarketList({ page: pageParam.pageParam }),
@@ -25,15 +23,9 @@ const useMarketList = () =>
 const getMarketList = async (
   params: MarketListParams
 ): Promise<MarketListServerReply | never> => {
-  if (USE_MOCK_DATA) {
-    return mockMarketData as [];
-  }
-
   const defaultParams = {
     page: 1,
-    per_page: USE_MOCK_DATA
-      ? MOCK_MARKET_DATA_LIST_ITEMS_NO
-      : MARKET_DATA_LIST_ITEMS_NO,
+    per_page: MARKET_DATA_LIST_ITEMS_NO,
     order: "market_cap_desc",
     vs_currency: "usd",
   };
@@ -43,11 +35,11 @@ const getMarketList = async (
   });
 
   const reply = await fetch(
-    `https://api.coingecko.com/api/v3/coins/markets?${searchParams}`,
+    `${BASE_URL}/api/v3/coins/markets?${searchParams}`,
     {
       method: "GET",
       headers: {
-        "x-cg-demo-api-key": "CG-NLfufgir3t8Hzg7RDzBwDWrG",
+        "x-cg-demo-api-key": API_KEY,
       },
     }
   );

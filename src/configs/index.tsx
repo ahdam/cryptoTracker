@@ -1,6 +1,5 @@
-// flag to load mock data instead of making API calls
-export const USE_MOCK_DATA = false;
+export const BASE_URL = 'https://api.coingecko.com/api'
+export const API_KEY = 'CG-NLfufgir3t8Hzg7RDzBwDWrG'
 
-// use different number of items for mock and real data
-export const MOCK_MARKET_DATA_LIST_ITEMS_NO = 10;
 export const MARKET_DATA_LIST_ITEMS_NO = 20;
+
